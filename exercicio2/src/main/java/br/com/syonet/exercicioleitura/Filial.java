@@ -11,9 +11,15 @@ public class Filial {
     int visitasAnuais;
     String geolocalizacao;  
 
-    public double getMediaMensalVisitas() {
-        return visitasAnuais / 12.0;
-    }
+
+
+// Método para calcular a média das visitas mensais
+public double getMediaMensalVisitas() {
+    int totalVisitas = 0;
+    for (int visitas : visitasMensais) {
+        totalVisitas += visitas;
+    } return (double) totalVisitas / visitasMensais.size();
+}
     //Sobrescrevendo o objeto
     @Override
     public String toString() {
