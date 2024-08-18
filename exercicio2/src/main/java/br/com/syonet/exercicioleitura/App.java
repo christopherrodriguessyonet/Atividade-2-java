@@ -53,6 +53,7 @@ public class App {
             for (Filial filial : filiais) {
             System.out.println(filial);
                 }
+            System.out.println("=================================================");
 
             // Encontrar a filial com a maior média de visitas
             Filial maiorMediaFilial = filiais.stream()
@@ -64,18 +65,23 @@ public class App {
             .min((f1, f2) -> Double.compare(f1.getMediaMensalVisitas(), f2.getMediaMensalVisitas()))
             .orElse(null);
 
+        // Calcular e imprimir a média de visitas de cada filial
+            for (Filial filial : filiais) {
+                double media = filial.getMediaMensalVisitas();
+                System.out.println("Filial: " + filial.nome + " - Média de visitas mensais: " + media);
+            }
+
             if (menorMediaFilial != null) {
                 System.out.println("=================================================");
                 System.out.println("A filial com a menor média de visitas é: " + menorMediaFilial.nome +
                         " com média de " + menorMediaFilial.getMediaMensalVisitas());
-            }
-
-           if (maiorMediaFilial != null) {
-            System.out.println("=================================================");
-           System.out.println("A filial com a maior média de visitas é: " + maiorMediaFilial.nome + " com média de " + maiorMediaFilial.getMediaMensalVisitas());
-}
-        } catch (IOException e) {
-            System.out.println("Arquivo não encontrado");
+                }
+            if (maiorMediaFilial != null) {
+                System.out.println("=================================================");
+                System.out.println("A filial com a maior média de visitas é: " + maiorMediaFilial.nome + " com média de " + maiorMediaFilial.getMediaMensalVisitas());
+                }       
+            } catch (IOException e) {
+                System.out.println("Arquivo não encontrado");
         }
     }
 }
